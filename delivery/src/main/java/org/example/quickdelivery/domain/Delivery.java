@@ -1,11 +1,15 @@
 package org.example.quickdelivery.domain;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
 @Entity
 @Table(name = "deliveries")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Delivery extends BaseEntity{
     @Id
     @GeneratedValue
@@ -34,4 +38,28 @@ public class Delivery extends BaseEntity{
 
     @Column(nullable = false)
     private String receiverSlackId;
+
+    public Delivery(UUID orderId, UUID sourceHubId, UUID destHubId, String deliveryAddress, String requestMemo, String receiverName, String receiverSlackId, DeliveryStatus deliveryStatus) {
+        this.orderId = orderId;
+        this.sourceHubId = sourceHubId;
+        this.destHubId = destHubId;
+        this.deliveryAddress = deliveryAddress;
+        this.requestMemo = requestMemo;
+        this.receiverName = receiverName;
+        this.receiverSlackId = receiverSlackId;
+        this.deliveryStatus = deliveryStatus;
+    }
+
+    public static Delivery create(UUID orderId, UUID sourceHubId, UUID destHubId, String deliveryAddress, String requestMemo, String receiverName, String receiverSlackId) {
+        return new Delivery(
+        orderId,
+        sourceHubId,
+        destHubId,
+        deliveryAddress,
+        requestMemo,
+        receiverName,
+        receiverSlackId,
+        DeliveryStatus.WAITING
+        );
+    }
 }
