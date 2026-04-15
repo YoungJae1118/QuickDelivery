@@ -3,6 +3,7 @@ package org.example.quickdelivery.domain;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.UUID;
@@ -10,6 +11,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "deliveries")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 public class Delivery extends BaseEntity{
     @Id
     @GeneratedValue
