@@ -9,7 +9,7 @@ import java.util.UUID;
 public class Delivery {
     @Id
     @GeneratedValue
-    private UUID ID;
+    private UUID id;
 
     @Column(nullable = false)
     private UUID orderId;
@@ -18,7 +18,7 @@ public class Delivery {
     private UUID sourceHubId;
 
     @Column(nullable = false)
-    private UUID desHubId;
+    private UUID destHubId;
 
     @Column(nullable = false)
     private String deliveryAddress;
@@ -27,7 +27,7 @@ public class Delivery {
     private String requestMemo;
 
     @Column(nullable = false)
-    private Enum<DeliveryStatus> deliveryStatus;
+    private DeliveryStatus deliveryStatus;
 
     @Column(nullable = false)
     private String receiverName;
