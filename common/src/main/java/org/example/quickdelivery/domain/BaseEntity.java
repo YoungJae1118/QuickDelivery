@@ -1,7 +1,6 @@
 package org.example.quickdelivery.domain;
 
-import jakarta.persistence.MappedSuperclass;
-
-@MappedSuperclass
+//테이블은 생성되지 않고 필드만 상속시켜주는 어노테이션 (vs Entity)
 public class BaseEntity {
+
 }
