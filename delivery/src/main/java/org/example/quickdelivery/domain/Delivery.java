@@ -6,7 +6,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "deliveries")
-public class Delivery {
+public class Delivery extends BaseEntity{
     @Id
     @GeneratedValue
     private UUID id;
